@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Pointers', {
+    await queryInterface.createTable('Points', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,10 +10,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.TEXT
+        type: Sequelize.STRING
       },
-      coordinates: {
-        type: Sequelize.INTEGER
+      coordinatesX: {
+        type: Sequelize.FLOAT
+      },
+      coordinatesY: {
+        type: Sequelize.FLOAT
+      },
+      coordinatesX1: {
+        type: Sequelize.FLOAT
+      },
+      coordinatesY1: {
+        type: Sequelize.FLOAT
+      },
+      near: {
+        type: Sequelize.TEXT
       },
       pics: {
         type: Sequelize.TEXT
@@ -29,6 +41,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Pointers');
+    await queryInterface.dropTable('Points');
   }
 };

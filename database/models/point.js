@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Routes extends Model {
+  class Point extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,12 +13,17 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Routes.init({
-    track: DataTypes.STRING,
-    type: DataTypes.BOOLEAN
+  Point.init({
+    name: DataTypes.STRING,
+    coordinatesX: DataTypes.FLOAT,
+    coordinatesY: DataTypes.FLOAT,
+    coordinatesX1: DataTypes.FLOAT,
+    coordinatesY1: DataTypes.FLOAT,
+    near: DataTypes.TEXT,
+    pics: DataTypes.TEXT
   }, {
     sequelize,
-    modelName: 'Routes',
+    modelName: 'Point',
   });
-  return Routes;
+  return Point;
 };
